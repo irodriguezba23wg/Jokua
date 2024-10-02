@@ -1,26 +1,23 @@
-const startButton = document.getElementById('start-btn');
-const targetArea = document.getElementById('target-area');
-const scoreBoard = document.getElementById('score');
-const timeLeftBoard = document.getElementById('time-left');
-const pointsBoard = document.getElementById('points');
-const speedButtons = document.querySelectorAll('.speed-btn');
+const startButton = document.getElementById('hasiera-botoia');
+const targetArea = document.getElementById('jokuaren_eremua');
+const scoreBoard = document.getElementById('puntuazioa');
+const timeLeftBoard = document.getElementById('denbora');
+const pointsBoard = document.getElementById('puntuak');
 
-
-let score = 0;
+let puntuazioa = 0;
 let timeLeft = 30;
 let gameInterval;
 let speedFactor = 1;
 let totalPoints = 0;
 
 function startGame() {
-    score = 0;
+    puntuazioa = 0;
     timeLeft = 30;
-    scoreBoard.textContent = score;
+    scoreBoard.textContent = puntuazioa;
     timeLeftBoard.textContent = timeLeft;
-   
 
-    document.getElementById('start-menu').style.display = 'none';
-    targetArea.innerHTML = ''; // Clear any previous targets
+    document.getElementById('hasiera-menua').style.display = 'none';
+    targetArea.innerHTML = ''; 
 
     gameInterval = setInterval(() => {
         if (timeLeft > 0) {
@@ -29,23 +26,23 @@ function startGame() {
             createTarget();
         } else {
             clearInterval(gameInterval);
-            alert('Tiempo terminado! Tu puntuación es: ' + score);
-            totalPoints += score;
+            alert('Denbora amaitu da! Zure puntuazioa: ' + puntuazioa);
+            totalPoints += puntuazioa;
             pointsBoard.textContent = totalPoints;
-            document.getElementById('start-menu').style.display = 'block';
+            document.getElementById('hasiera-menua').style.display = 'block';
         }
     }, 1000 / speedFactor); // Controla la rapidez de aparición de los objetivos
 }
 
 function createTarget() {
     const target = document.createElement('div');
-    target.classList.add('target');
+    target.classList.add('diana');
 
     const x = Math.random() * (targetArea.offsetWidth - 50);
     const y = Math.random() * (targetArea.offsetHeight - 50);
 
-    target.style.left = `${x}px`;
-    target.style.top = `${y}px`;
+    target.style.left = x + 'px';
+    target.style.top = y + 'px';
 
     targetArea.appendChild(target);
 
@@ -53,16 +50,15 @@ function createTarget() {
         if (target.parentElement) target.remove();
     }, 1000 / speedFactor); // Targets disappear based on speed factor
 
-    // Agregar evento de clic al objetivo
     target.addEventListener('click', (event) => {
-        score += speedFactor; // Aumentar la puntuación según la velocidad
-        scoreBoard.textContent = score;
-        target.remove(); // Remove the target when clicked
+        puntuazioa++;
+        scoreBoard.textContent = puntuazioa;
+        target.remove();
     });
 }
 
 // Agregar evento de clic a la zona de destino para disparar
-targetArea.addEventListener('click', (event) => {
+/*targetArea.addEventListener('click', (event) => {
     shootAnimation(event.clientX, event.clientY); // Dispara desde la posición del clic
 });
 
@@ -90,6 +86,6 @@ function shootAnimation(mouseX, mouseY) {
     setTimeout(() => {
         bullet.remove();
     }, 300); // Duración de la animación
-}
+}*/
 
 startButton.addEventListener('click', startGame);

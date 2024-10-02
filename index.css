@@ -15,7 +15,7 @@ body {
     overflow: hidden;
 }
 
-#game-container {
+#jokoa {
     width: 80%;
     height: 80%;
     background-color: #1c1e24;
@@ -23,20 +23,20 @@ body {
     position: relative;
 }
 
-#score-board {
+#markagailua {
     display: flex;
     justify-content: space-between;
     padding: 20px;
     background-color: none;
 }
 
-#target-area {
+#jokuaren_eremua {
     position: relative;
     width: 100%;
     height: calc(100% - 60px);
 }
 
-.target {
+.diana {
     width: 50px;
     height: 50px;
     border-radius: 50%;
@@ -45,7 +45,7 @@ body {
     cursor: pointer;
 }
 
-#start-menu {
+#hasiera-menua {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -72,7 +72,7 @@ body {
     text-align: center;
 }
 
-.section-title h4 {
+#hobekuntza-titulua h4, #mapak-titulua h4 {
     font-size: 18px;
     margin-bottom: 10px;
     padding: 10px 0;
@@ -80,7 +80,7 @@ body {
     color: #f0f0f0;
 }
 
-.hobekuntza_list, .mapa_list {
+.hobekuntza-zerrenda, .mapa-zerrenda {
     background-color: #5c6373;
     margin: 8px 0;
     padding: 10px;
@@ -89,15 +89,14 @@ body {
     cursor: pointer;
 }
 
-.hobekuntza_list p, .mapa_list p {
+.hobekuntza-zerrenda p, .mapa-zerrenda p {
     font-size: 16px;
     margin: 0;
 }
 
-.hobekuntza_list:hover, .mapa_list:hover {
+.hobekuntza-zerrenda:hover, .mapa-zerrenda:hover {
     background-color: #798292;
 }
-
 
 button {
     background-color: #61dafb;
@@ -112,14 +111,14 @@ button:hover {
     background-color: #21a1f1;
 }
 
-
 .bullet {
     position: absolute;
     width: 10px;
     height: 10px;
-    background-color: rgb(0, 38, 255);
+    background-color: yellow;
     border-radius: 50%;
     transition: transform 0.10s ease;
 }
-
-
+ #puntu-totalak{
+    height: 10%;
+ }
