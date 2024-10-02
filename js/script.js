@@ -9,6 +9,7 @@ let timeLeft = 30;
 let gameInterval;
 let speedFactor = 1;
 let totalPoints = 0;
+let biderkatzailea=1;
 
 function startGame() {
     puntuazioa = 0;
@@ -51,7 +52,7 @@ function createTarget() {
     }, 1000 / speedFactor); // Targets disappear based on speed factor
 
     target.addEventListener('click', (event) => {
-        puntuazioa++;
+        puntuazioa+=1*biderkatzailea;
         scoreBoard.textContent = puntuazioa;
         target.remove();
     });
