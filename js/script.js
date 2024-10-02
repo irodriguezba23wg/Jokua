@@ -32,33 +32,32 @@ function startGame() {
             pointsBoard.textContent = totalPoints;
             document.getElementById('hasiera-menua').style.display = 'block';
         }
-    }, 1000 / speedFactor); // Controla la rapidez de aparición de los objetivos
+    }, 1000 / speedFactor);
 }
 
 function createTarget() {
-    const target = document.createElement('div');
-    target.classList.add('diana');
+    const diana = document.createElement('div');
+    diana.classList.add('diana');
 
     const x = Math.random() * (targetArea.offsetWidth - 50);
     const y = Math.random() * (targetArea.offsetHeight - 50);
 
-    target.style.left = x + 'px';
-    target.style.top = y + 'px';
+    diana.style.left = x + 'px';
+    diana.style.top = y + 'px';
 
-    targetArea.appendChild(target);
+    targetArea.appendChild(diana);
 
     setTimeout(() => {
-        if (target.parentElement) target.remove();
-    }, 1000 / speedFactor); // Targets disappear based on speed factor
+        if (diana.parentElement) diana.remove();
+    }, 1000 / speedFactor);
 
-    target.addEventListener('click', (event) => {
+    diana.addEventListener('click', (event) => {
         puntuazioa+=1*biderkatzailea;
         scoreBoard.textContent = puntuazioa;
-        target.remove();
+        diana.remove();
     });
 }
 
-// Agregar evento de clic a la zona de destino para disparar
 /*targetArea.addEventListener('click', (event) => {
     shootAnimation(event.clientX, event.clientY); // Dispara desde la posición del clic
 });
